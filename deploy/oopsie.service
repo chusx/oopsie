@@ -1,0 +1,14 @@
+[Unit]
+Description=oopsie web api mcp and autonomous worker
+After=network-online.target docker.service mongod.service
+Wants=network-online.target docker.service mongod.service
+[Service]
+User=oopsie
+WorkingDirectory=/opt/oopsie
+EnvironmentFile=-/etc/oopsie.env
+ExecStart=/opt/oopsie/.venv/bin/uvicorn worker.app:app --host 127.0.0.1 --port 8000 --proxy-headers --forwarded-allow-ips=127.0.0.1
+Restart=always
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+[Install]
+WantedBy=multi-user.target

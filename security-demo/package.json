@@ -1,0 +1,1 @@
+{"name":"oopsie-auth-bypass-lab","private":true,"version":"1.0.0","scripts":{"build":"next build","start":"next start -p 3111"},"dependencies":{"next":"14.2.24","react":"18.3.1","react-dom":"18.3.1"}}

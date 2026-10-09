@@ -1,0 +1,10 @@
+{
+  "openapi": "3.0.3",
+  "info": {"title": "oopsie recovery worker", "version": "1.0.0", "description": "bounded recovery operations for the owned synthetic billing connector"},
+  "servers": [{"url": "https://api.oopsie.website"}],
+  "paths": {
+    "/internal/inspect": {"post": {"operationId": "inspect_oops", "summary": "read an incident and its actual evidence before choosing action", "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/run"}}}}, "responses": {"200": {"description": "incident evidence", "content": {"application/json": {"schema": {"type": "object"}}}}}}},
+    "/internal/recover": {"post": {"operationId": "execute_recovery", "summary": "start bounded candidate evaluation and verified recovery for this incident", "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/run"}}}}, "responses": {"200": {"description": "worker dispatch receipt", "content": {"application/json": {"schema": {"type": "object", "properties": {"id": {"type": "string"}, "state": {"type": "string"}, "message": {"type": "string"}}}}}}}}
+  },
+  "components": {"schemas": {"run": {"type": "object", "required": ["incident_id", "run_token"], "additionalProperties": false, "properties": {"incident_id": {"type": "string", "description": "32-character incident id from the initial prompt"}, "run_token": {"type": "string", "description": "32-character scoped run token from the initial prompt"}}}}}
+}

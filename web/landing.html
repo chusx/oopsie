@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="oopsie is an autonomous recovery agent for failures uptime misses. see the wrong invoice, the rejected unsafe fixes, and the verified repair. watch public repos, cves, and owned urls.">
+  <title>oopsie — a recovery agent for failures uptime misses.</title>
+  <link rel="alternate" type="application/json" title="latest verified recovery receipt" href="/api/public/status/latest">
+  <link rel="icon" href="/assets/icon.svg">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/landing.js" defer></script>
+  <script src="/assets/theme.js" defer></script>
+</head>
+<body class="landing-page">
+  <div class="site">
+    <header class="nav">
+      <a class="brand" href="/" aria-label="oopsie home"><span class="glyph" aria-hidden="true">o.</span>oopsie</a>
+      <nav aria-label="main navigation">
+        <a href="#receipt">latest receipt</a>
+        <a href="#signals">bring a signal</a>
+        <a href="#method">how it works</a>
+        <a href="/status">public status</a>
+        <button class="theme-toggle" type="button" aria-label="switch to light mode" title="switch theme">◐</button>
+        <a class="nav-cta" href="https://app.oopsie.website">open the console <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-intro">
+          <p class="kicker"><span class="kicker-rule"></span> autonomous recovery agent</p>
+          <h1 id="hero-title">$1,299.00.<br><em>it should be $12.99.</em></h1>
+          <p class="hero-copy" id="hero-copy">oopsie catches failures hidden behind <strong>200 ok</strong>, investigates what broke, and proposes a repair. in our owned billing demo, it found an invoice overstated by $1,286.01 and a separate cross-tenant read. unsafe fixes failed the checks; the passing repair went live and was verified again.</p>
+          <div class="actions">
+            <a class="button primary" href="https://app.oopsie.website">try the live demo <span aria-hidden="true">↗</span></a>
+            <a class="button ghost" href="#receipt">inspect the proof <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="hero-note">two verified runs on owned synthetic invoices. no real customer data or transaction was involved. every number below links to a public recovery receipt.</p>
+        </div>
+        <div class="hero-evidence" aria-label="two verified synthetic faults">
+          <article class="evidence-card evidence-amount">
+            <div class="evidence-top"><span>01 / invoice fault</span><span id="amount-state">checking published receipt</span></div>
+            <div class="evidence-body">
+              <p class="evidence-label">returned to tenant a · http 200</p>
+              <strong class="evidence-number" id="amount-observed">$1,299.00</strong>
+              <div class="evidence-baseline"><span>contract expected</span><strong id="amount-expected">$12.99</strong></div>
+            </div>
+            <div class="evidence-links"><a id="amount-link" href="/status/7baa3c1a1c564d9db1e80586ef34def5">verified run · receipt ↗</a><a href="/api/public/status/7baa3c1a1c564d9db1e80586ef34def5" type="application/json">raw json ↗</a></div>
+          </article>
+          <article class="evidence-card evidence-tenant">
+            <div class="evidence-top"><span>02 / tenant fault</span><span id="tenant-state">checking published receipt</span></div>
+            <div class="evidence-body">
+              <p class="evidence-label">tenant a → tenant b's invoice</p>
+              <div class="evidence-status"><strong id="tenant-observed">200</strong><span>returned<br>invoice exposed</span></div>
+              <div class="evidence-baseline"><span>contract expected</span><strong id="tenant-expected">403 denied</strong></div>
+            </div>
+            <div class="evidence-links"><a id="tenant-link" href="/status/3177f589d3234e399a574a1920753ef2">verified run · receipt ↗</a><a href="/api/public/status/3177f589d3234e399a574a1920753ef2" type="application/json">raw json ↗</a></div>
+          </article>
+        </div>
+        <div class="hero-bridge"><span>the wrong bill would overstate this invoice by $1,286.01.</span><strong>the apparent fix crossed a tenant boundary.</strong></div>
+      </section>
+      <section id="receipt" class="receipt-section" aria-labelledby="receipt-title">
+        <div class="section-intro">
+          <div>
+            <p class="kicker"><span class="kicker-rule"></span> latest published recovery</p>
+            <h2 id="receipt-title">the receipt is the product.</h2>
+            <p>this is a redacted record from an owned synthetic service. it updates when another recovery has passed the live gateway check.</p>
+          </div>
+          <a class="text-link" href="/status">all published reports <span aria-hidden="true">↗</span></a>
+        </div>
+        <article class="recovery-ticket" id="latest-ticket" aria-live="polite">
+          <div class="ticket-loading">loading the latest published receipt…</div>
+        </article>
+      </section>
+      <section id="matrix" class="matrix-section" aria-labelledby="matrix-title">
+        <div class="section-intro">
+          <div>
+            <p class="kicker"><span class="kicker-rule"></span> the rollback trap</p>
+            <h2 id="matrix-title">one fix can break another promise.</h2>
+            <p>each candidate faces the same five checks. a repair can ship only when every one passes.</p>
+          </div>
+        </div>
+        <div class="matrix-wrap" id="public-matrix"><p class="empty">waiting for a published candidate comparison.</p></div>
+        <p class="matrix-swipe">swipe across the table to see all five checks →</p>
+      </section>
+      <section id="signals" class="signal-section" aria-labelledby="signals-title">
+        <div class="section-intro">
+          <div>
+            <p class="kicker"><span class="kicker-rule"></span> your inputs</p>
+            <h2 id="signals-title">bring a real signal.</h2>
+            <p>add a public source or a URL you control. see what was checked, when it changed, and where the evidence came from. outside watches are read-only; automatic repair remains limited to the isolated billing demo.</p>
+          </div>
+          <a class="text-link" href="https://app.oopsie.website/?view=watch">open real-world watch <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="signal-grid">
+          <article><span class="signal-index">01 / repository</span><h3>public github repo</h3><p>add a repository URL. oopsie checks up to 80 exact package versions from a root lockfile or requirements file against <a href="https://osv.dev" target="_blank" rel="noreferrer">osv ↗</a>. a match prompts review; it is not proof the app is exploitable. try <a href="https://github.com/OWASP/NodeGoat" target="_blank" rel="noreferrer">owasp/nodegoat ↗</a>.</p></article>
+          <article><span class="signal-index">02 / advisory</span><h3>cve record</h3><p>add a cve id. oopsie rechecks the <a href="https://www.cve.org" target="_blank" rel="noreferrer">official cve record ↗</a> and shows its published state, update time, and maintainer link when available. try <a href="https://www.cve.org/CVERecord?id=CVE-2025-29927" target="_blank" rel="noreferrer">cve-2025-29927 ↗</a>.</p></article>
+          <article><span class="signal-index">03 / endpoint</span><h3>owned https url</h3><p>prove control with a dns txt record, then watch an expected status and a non-secret response phrase. the check follows no redirects and stores a hash, not the response body.</p></article>
+        </div>
+      </section>
+      <section id="method" class="method-section" aria-labelledby="method-title">
+        <div class="section-intro">
+          <div>
+            <p class="kicker"><span class="kicker-rule"></span> how recovery works</p>
+            <h2 id="method-title">catch it. fix it. prove it.</h2>
+            <p>oopsie uses live evidence and current rules to propose a change. an independent gate decides whether that change can reach the running service.</p>
+          </div>
+        </div>
+        <div class="method-list">
+          <article><span>01</span><div><h3>catch the wrong result.</h3><p>one run returned $1,299.00 instead of $12.99; another returned tenant b's invoice to tenant a. both failures hid behind successful http responses.</p></div></article>
+          <article><span>02</span><div><h3>find a safe way forward.</h3><p>the hosted investigator and coordinator read the failure, approved policy, and earlier releases. old versions failed tenant isolation or the current data schema, so they proposed a forward repair.</p></div></article>
+          <article><span>03</span><div><h3>act only after the gate holds.</h3><p>the worker scanned and ran the proposed handler against five unchanged checks, switched the gateway to that exact artifact, and passed fresh public probes twice. the receipt records each decision and the deployed hash.</p></div></article>
+        </div>
+        <p class="hero-note">available today for one isolated synthetic billing service per workspace. external-service deployment connectors are not yet available.</p>
+      </section>
+    </main>
+    <footer><a class="brand" href="/"><span class="glyph">o.</span>oopsie</a><span>owned synthetic data · real gateway switches · public receipts</span><a href="/status">verified recoveries ↗</a></footer>
+  </div>
+</body>
+</html>

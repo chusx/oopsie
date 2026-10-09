@@ -1,0 +1,11 @@
+# deployment template
+
+these files are portable starting points for a new host; the live hackathon site was deployed from a separate private build checkout. [`oopsie.service`](oopsie.service) assumes an `oopsie` system user and checkout at `/opt/oopsie`. adjust those paths for your host. [`Caddyfile`](Caddyfile) routes `oopsie.website`, `app.oopsie.website`, and `api.oopsie.website` to fastapi on loopback port `8000`; update the names and dns before installing it.
+
+install python 3.12, docker, caddy, mongodb community, and the packages in [`requirements.txt`](../requirements.txt). keep mongodb on `127.0.0.1:27017` and create an ignored `.local/` directory writable by the service user. build the billing image with `docker build -t oopsie-demo:1 demo-app`. export configuration from [`.env.example`](../.env.example) through `/etc/oopsie.env` or another private service environment file. do not place populated credentials in the checkout. `worker/config.py` can also read a private credential file named by `OOPSIE_CREDENTIAL_FILE`.
+
+guild agents are provisioned by `scripts/setup_guild.py` using your own account. senso source versions, clickhouse table and restricted runtime sql user, and sponsor credentials must be initialized separately. the current worker uses a clickhouse identity limited to `SELECT` and `INSERT` on its observations table; table creation belongs to a separate setup identity. [`docs/architecture.md`](../docs/architecture.md) describes the resulting decision gate. a successful `/healthz` response checks the app and mongodb, not the sponsor path.
+
+the intentionally vulnerable next.js lab is optional and uses synthetic data. build `security-demo` at the affected `14.2.24` version and the `14.2.25` comparator, then bind both ports **only to loopback** (`127.0.0.1:3111` and `127.0.0.1:3112`). never add either port to caddy or a public firewall. run `security-demo/probe.py` before presenting the advisory replay.
+
+after deployment, verify the public landing, authenticated console, api docs, `GET /healthz`, and unauthenticated `POST /mcp` returning `401`. a complete recovery claim requires a new owned incident with a candidate verdict, actual gateway switch, two rounds of five fresh public checks, and a published redacted report. [`docs/reproduce.md`](../docs/reproduce.md) lists the live demonstration path.

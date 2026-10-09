@@ -1,0 +1,17 @@
+rules:
+  - id: oopsie.tenant-boundary-absent
+    languages: [python]
+    severity: ERROR
+    message: approved tenant guard pattern absent; verify behavior with the executable floor
+    patterns:
+      - pattern: |
+          def handle(...):
+            ...
+            return 200, {...}
+      - pattern-not: |
+          def handle(...):
+            ...
+            if not $INVOICE or $INVOICE['tenant_id'] != $TENANT:
+                ...
+            ...
+            return 200, {...}

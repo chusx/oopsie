@@ -1,0 +1,12 @@
+oopsie.website {
+    reverse_proxy 127.0.0.1:8000
+    encode gzip
+}
+app.oopsie.website, api.oopsie.website {
+    reverse_proxy 127.0.0.1:8000 {
+        transport http {
+            read_timeout 300s
+        }
+    }
+    encode gzip
+}
